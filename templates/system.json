@@ -1,0 +1,17 @@
+{
+  "_id": "{{@ system @}}",
+  "authentication": "basic",
+  "operations": {
+    "tickets-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "payload_property": "tickets",
+      "url": "tickets.json"
+    }
+  },
+  "password": "$SECRET(api_key)",
+  "type": "system:rest",
+  "url_pattern": "https://{{@ subdomain @}}.zendesk.com/api/v2/%s",
+  "username": "{{@ email @}}/token",
+  "verify_ssl": true
+}

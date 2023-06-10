@@ -1,0 +1,13 @@
+{
+  "additional_parameters": {
+    "email": {},
+    "subdomain": {}
+  },
+  "auth": "api_key",
+  "datatypes": {
+    "tickets": {
+      "template": "templates/tickets.json"
+    }
+  },
+  "system-template": "templates/system.json"
+}

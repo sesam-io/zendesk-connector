@@ -6,6 +6,9 @@
       "dataset": "{{@ system @}}-{{@ parent @}}-collect",
       "type": "dataset"
     },
+    "pump": {
+      "rescan_run_count": 1
+    },
     "transform": [
       {
         "rules": {
@@ -90,12 +93,47 @@
     },
     "transform": [
       {
+        "rules": {
+          "create-payload": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "_*",
+                "$*",
+                "{{@ parent_id @}}"
+              ]
+            ]
+          ],
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$payload",
+              [
+                "dict",
+                "{{@ payload_property @}}",
+                [
+                  "apply",
+                  "create-payload",
+                  "_S."
+                ]
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      },
+      {
         "properties": {
           "operation_delete": "{{@ datatype @}}-delete",
           "operation_insert": "{{@ datatype @}}-insert",
           "operation_lookup": "{{@ datatype @}}-lookup",
           "operation_update": "{{@ datatype @}}-update",
-          "payload_property": "{{@ payload_property @}}",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"

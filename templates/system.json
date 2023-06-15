@@ -7,6 +7,33 @@
       "method": "GET",
       "payload_property": "tickets",
       "url": "tickets.json"
+    },
+    "useridentities-list": {
+      "method": "GET",
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
+      "payload_property": "identities",
+      "url": "users/{{ properties.user_id }}/identities"
+    },
+    "users-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
+      "payload_property": "users",
+      "url": "users"
     }
   },
   "password": "$SECRET(api_key)",

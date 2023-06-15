@@ -3,6 +3,14 @@
   "authentication": "basic",
   "operations": {
     "organizations-list": {
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
       "id_expression": "{{ id }}",
       "method": "GET",
       "payload_property": "organizations",
@@ -10,10 +18,26 @@
     },
     "ticketcomments-list": {
       "method": "GET",
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
       "payload_property": "comments",
       "url": "tickets/{{ properties.ticket_id }}/comments"
     },
     "tickets-list": {
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
       "id_expression": "{{ id }}",
       "method": "GET",
       "payload_property": "tickets",

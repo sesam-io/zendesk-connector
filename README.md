@@ -19,7 +19,35 @@ Minimal object:
 Updated:
 ```
     "$based_on_properties": [
-    ]
+        "description",
+        "allow_attachments",
+        "allow_channelback",
+        "brand_id",
+        "collaborator_ids",
+        "created_at",
+        "custom_fields",
+        "custom_status_id",
+        "email_cc_ids",
+        "follower_ids",
+        "followup_ids",
+        "from_messaging_channel",
+        "group_id",
+        "has_incidents",
+        "id",
+        "is_public",
+        "organization_id",
+        "priority",
+        "raw_subject",
+        "requester_id",
+        "sharing_agreement_ids",
+        "status",
+        "subject",
+        "submitter_id",
+        "tags",
+        "ticket_form_id",
+        "updated_at",
+        "url"
+        ],
 ```
 
 Notes:

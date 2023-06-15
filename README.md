@@ -1,7 +1,18 @@
 # zendesk-connector
+Repository for the Zendesk connector
 
-The .authconfig file needs a "api_key" property
+## Developer notes
+The `.authconfig` file needs a `api_key` property, in addition you need to add these env-vars manually (for now):
 
+```
+  "email": "<email here>",
+  "subdomain": "<subdomain here>"
+```
+
+For convenience, you can put them into a "test-env.json" file locally, but make sure you don't include it in any 
+subsequent `git add` or `git commit` command!
+
+# Datatypes
 ## Tickets
 Insert:
 

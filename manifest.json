@@ -5,11 +5,25 @@
   },
   "auth": "api_key",
   "datatypes": {
+    "organizations": {
+      "template": "templates/tickets.json"
+    },
+    "ticketcomments": {
+      "template": "templates/useridentities.json",
+      "parent": "tickets",
+      "parameters": {
+        "parent_id": "ticket_id"
+      }
+    },
     "tickets": {
       "template": "templates/tickets.json"
     },
     "useridentities": {
-      "template": "templates/useridentities.json"
+      "parent": "users",
+      "template": "templates/useridentities.json",
+      "parameters": {
+        "parent_id": "user_id"
+      }
     },
     "users": {
       "template": "templates/tickets.json"

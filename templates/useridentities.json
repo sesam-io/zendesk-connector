@@ -2,7 +2,7 @@
   "_id": "{{@ system @}}-{{@ datatype @}}-collect",
   "namespaced_identifiers": false,
   "source": {
-    "dataset": "{{@ system @}}-users-collect",
+    "dataset": "{{@ system @}}-{{@ parent @}}-collect",
     "type": "dataset"
   },
   "transform": [
@@ -18,7 +18,7 @@
             "properties",
             [
               "dict",
-              "user_id",
+              "{{@ parent_id @}}",
               "_S.id"
             ]
           ]

@@ -34,6 +34,25 @@
       "payload_property": "identity",
       "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
     },
+    "organizations-delete": {
+      "method": "DELETE",
+      "url": "organizations/{{ entity['$source']['id'] }}.json"
+    },
+    "organizations-insert": {
+      "method": "POST",
+      "payload_property": "organization",
+      "url": "organizations.json"
+    },
+    "organizations-lookup": {
+      "method": "GET",
+      "payload_property": "organization",
+      "url": "organizations/{{ entity['$source']['id'] }}.json"
+    },
+    "organizations-update": {
+      "method": "PUT",
+      "payload_property": "organization",
+      "url": "organizations/{{ entity['$source']['id'] }}.json"
+    },
     "organizations-list": {
       "id_expression": "{{ id }}",
       "method": "GET",

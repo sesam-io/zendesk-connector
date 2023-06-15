@@ -5,27 +5,37 @@
   },
   "auth": "api_key",
   "datatypes": {
+    "identities": {
+      "parameters": {
+        "parent_id": "user_id",
+        "payload_property": "identity"
+      },
+      "parent": "users",
+      "template": "templates/identities.json"
+    },
     "organizations": {
+      "parameters": {
+        "payload_property": "organization"
+      },
       "template": "templates/tickets.json"
     },
     "ticketcomments": {
-      "template": "templates/useridentities.json",
-      "parent": "tickets",
       "parameters": {
         "parent_id": "ticket_id"
-      }
+      },
+      "parent": "tickets",
+      "template": "templates/identities.json"
     },
     "tickets": {
+      "parameters": {
+        "payload_property": "ticket"
+      },
       "template": "templates/tickets.json"
     },
-    "useridentities": {
-      "parent": "users",
-      "template": "templates/useridentities.json",
-      "parameters": {
-        "parent_id": "user_id"
-      }
-    },
     "users": {
+      "parameters": {
+        "payload_property": "ticket"
+      },
       "template": "templates/tickets.json"
     }
   },

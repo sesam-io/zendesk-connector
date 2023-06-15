@@ -2,7 +2,16 @@
   "_id": "{{@ system @}}",
   "authentication": "basic",
   "operations": {
-    "organizations-list": {
+    "identities-delete": {
+      "method": "DELETE",
+      "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
+    },
+    "identities-insert": {
+      "method": "POST",
+      "url": "users/{{ entity['$source']['user_id'] }}/identities"
+    },
+    "identities-list": {
+      "method": "GET",
       "next_page_link": "{{ body.links.next }}",
       "next_page_termination_strategy": [
         "empty-result",
@@ -11,8 +20,28 @@
       "params": {
         "page[size]": 1
       },
+      "payload_property": "identities",
+      "url": "users/{{ properties.user_id }}/identities"
+    },
+    "identities-lookup": {
+      "method": "GET",
+      "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
+    },
+    "identities-update": {
+      "method": "PUT",
+      "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
+    },
+    "organizations-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 1
+      },
       "payload_property": "organizations",
       "url": "organizations"
     },
@@ -29,7 +58,18 @@
       "payload_property": "comments",
       "url": "tickets/{{ properties.ticket_id }}/comments"
     },
+    "tickets-delete": {
+      "method": "DELETE",
+      "url": "tickets/{{ entity['$source']['id'] }}.json"
+    },
+    "tickets-insert": {
+      "method": "POST",
+      "payload_property": "ticket",
+      "url": "tickets.json"
+    },
     "tickets-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
       "next_page_link": "{{ body.links.next }}",
       "next_page_termination_strategy": [
         "empty-result",
@@ -38,23 +78,18 @@
       "params": {
         "page[size]": 1
       },
-      "id_expression": "{{ id }}",
-      "method": "GET",
       "payload_property": "tickets",
       "url": "tickets.json"
     },
-    "useridentities-list": {
+    "tickets-lookup": {
       "method": "GET",
-      "next_page_link": "{{ body.links.next }}",
-      "next_page_termination_strategy": [
-        "empty-result",
-        "next-page-link-empty"
-      ],
-      "params": {
-        "page[size]": 1
-      },
-      "payload_property": "identities",
-      "url": "users/{{ properties.user_id }}/identities"
+      "payload_property": "ticket",
+      "url": "tickets/{{ entity['$source']['id'] }}.json"
+    },
+    "tickets-update": {
+      "method": "PUT",
+      "payload_property": "ticket",
+      "url": "tickets/{{ entity['$source']['id'] }}.json"
     },
     "users-list": {
       "id_expression": "{{ id }}",

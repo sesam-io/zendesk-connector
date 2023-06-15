@@ -8,11 +8,11 @@
     "tickets": {
       "template": "templates/tickets.json"
     },
-   "users": {
-      "template": "templates/tickets.json"
-    },
-   "useridentities": {
+    "useridentities": {
       "template": "templates/useridentities.json"
+    },
+    "users": {
+      "template": "templates/tickets.json"
     }
   },
   "system-template": "templates/system.json"

@@ -4,11 +4,11 @@
   "source": {
     "operation": "{{@ datatype @}}-list",
     "system": "{{@ system @}}",
-    "type": "rest",
     "trace": {
       "log_request_body_maxsize": 100000,
       "log_response_body_maxsize": 100000
-    }
+    },
+    "type": "rest"
   },
   "transform": {
     "rules": {

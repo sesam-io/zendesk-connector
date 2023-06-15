@@ -54,6 +54,41 @@ Notes:
 * ``description`` can only be set on the initial insert, after that it cannot be updated
 * ``raw_subject`` will override ``subject`` if present in an update
 
+
+## Ticketcomments
+Share not implemented yet.
+
+
+## Organizations
+Insert:
+
+Minimal object:
+```
+{
+    "name": "An organization"
+}
+```
+
+Update:
+```
+    "$based_on_properties": [
+        "name",
+        "created_at",
+        "details",
+        "domain_names",
+        "external_id",
+        "group_id",
+        "id",
+        "notes",
+        "organization_fields",
+        "shared_comments",
+        "shared_tickets",
+        "tags",
+        "updated_at",
+        "url"
+        ],
+```
+
 ## Users
 Insert:
 

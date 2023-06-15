@@ -34,7 +34,7 @@
     },
     "users": {
       "parameters": {
-        "payload_property": "ticket"
+        "payload_property": "user"
       },
       "template": "templates/tickets.json"
     }

@@ -8,7 +8,8 @@
     },
     "identities-insert": {
       "method": "POST",
-      "url": "users/{{ entity['$source']['user_id'] }}/identities"
+      "payload_property": "identity",
+      "url": "users/{{ entity['$source']['user_id'] }}/identities.json"
     },
     "identities-list": {
       "method": "GET",
@@ -25,10 +26,12 @@
     },
     "identities-lookup": {
       "method": "GET",
+      "payload_property": "identity",
       "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
     },
     "identities-update": {
       "method": "PUT",
+      "payload_property": "identity",
       "url": "users/{{ entity['$source']['user_id'] }}/identities/{{ entity['$source']['id'] }}"
     },
     "organizations-list": {
@@ -91,6 +94,15 @@
       "payload_property": "ticket",
       "url": "tickets/{{ entity['$source']['id'] }}.json"
     },
+    "users-delete": {
+      "method": "DELETE",
+      "url": "users/{{ entity['$source']['id'] }}"
+    },
+    "users-insert": {
+      "method": "POST",
+      "payload_property": "user",
+      "url": "users.json"
+    },
     "users-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -104,6 +116,16 @@
       },
       "payload_property": "users",
       "url": "users"
+    },
+    "users-lookup": {
+      "method": "GET",
+      "payload_property": "user",
+      "url": "users/{{ entity['$source']['id'] }}"
+    },
+    "users-update": {
+      "method": "PUT",
+      "payload_property": "user",
+      "url": "users/{{ entity['$source']['id'] }}"
     }
   },
   "password": "$SECRET(api_key)",

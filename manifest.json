@@ -5,6 +5,12 @@
   },
   "auth": "api_key",
   "datatypes": {
+    "organizations": {
+      "template": "templates/tickets.json"
+    },
+    "ticketcomments": {
+      "template": "templates/ticketcomments.json"
+    },
     "tickets": {
       "template": "templates/tickets.json"
     },

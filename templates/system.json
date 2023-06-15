@@ -2,6 +2,17 @@
   "_id": "{{@ system @}}",
   "authentication": "basic",
   "operations": {
+    "organizations-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "payload_property": "organizations",
+      "url": "organizations"
+    },
+    "ticketcomments-list": {
+      "method": "GET",
+      "payload_property": "comments",
+      "url": "tickets/{{ properties.ticket_id }}/comments"
+    },
     "tickets-list": {
       "id_expression": "{{ id }}",
       "method": "GET",

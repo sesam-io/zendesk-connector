@@ -56,7 +56,7 @@ Notes:
 
 
 ## Ticketcomments
-Share not implemented yet.
+Share is not implemented yet. Create and update must be done through the Ticket endpoint: https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/
 
 
 ## Organizations

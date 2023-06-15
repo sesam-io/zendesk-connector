@@ -7,6 +7,12 @@
   "datatypes": {
     "tickets": {
       "template": "templates/tickets.json"
+    },
+   "users": {
+      "template": "templates/tickets.json"
+    },
+   "useridentities": {
+      "template": "templates/useridentities.json"
     }
   },
   "system-template": "templates/system.json"

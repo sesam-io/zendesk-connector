@@ -8,60 +8,66 @@
       "type": "string"
     },
     "created_at": {
+      "description": "The time the organization was created",
       "type": "string"
     },
     "details": {
+      "description": "Any details obout the organization, such as the address",
       "type": "string"
     },
     "domain_names": {
+      "description": "An array of domain names associated with this organization",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "external_id": {
+      "description": "A unique external id to associate organizations to an external record. The id is case-insensitive. For example, 'company1' and 'Company1' are considered the same",
       "type": "string"
     },
     "group_id": {
+      "description": "New tickets from users in this organization are automatically put in this group",
       "type": "integer"
     },
     "id": {
+      "description": "Automatically assigned when the organization is created",
       "type": "integer"
     },
     "name": {
+      "description": "A unique name for the organization",
       "type": "string"
     },
     "notes": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "null"
     },
     "organization_fields": {
       "additionalProperties": true,
+      "description": "Custom fields for this organization",
       "properties": {},
       "type": "object"
     },
     "shared_comments": {
+      "description": "End users in this organization are able to see each other's comments on tickets",
       "type": "boolean"
     },
     "shared_tickets": {
+      "description": "End users in this organization are able to see each other's tickets",
       "type": "boolean"
     },
     "tags": {
+      "description": "The tags of the organization",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "updated_at": {
+      "description": "The time of the last update of the organization",
       "type": "string"
     },
     "url": {
+      "description": "The API url of this organization",
       "type": "string"
     }
   },

@@ -4,31 +4,39 @@
   "additionalProperties": true,
   "properties": {
     "attachments": {
+      "description": "Attachments, if any.",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "audit_id": {
+      "description": "The id of the ticket audit record",
       "type": "integer"
     },
     "author_id": {
+      "description": "The id of the comment author",
       "type": "integer"
     },
     "body": {
+      "description": "The comment string",
       "type": "string"
     },
     "created_at": {
+      "description": "The time the comment was created",
       "type": "string"
     },
     "html_body": {
+      "description": "The comment formatted as HTML",
       "type": "string"
     },
     "id": {
+      "description": "Automatically assigned when the comment is created",
       "type": "integer"
     },
     "metadata": {
       "additionalProperties": true,
+      "description": "System information (web client, IP address, etc.) and comment flags, if any",
       "properties": {
         "custom": {
           "additionalProperties": true,
@@ -68,16 +76,20 @@
       "type": "object"
     },
     "plain_body": {
+      "description": "The comment presented as plain text.",
       "type": "string"
     },
     "public": {
+      "description": "true if a public comment; false if an internal note. The initial value set on ticket creation persists for any additional comment unless you change it",
       "type": "boolean"
     },
     "type": {
+      "description": "Comment or VoiceComment. The JSON object for adding voice comments to tickets is different.",
       "type": "string"
     },
     "via": {
       "additionalProperties": true,
+      "description": "Describes how the object was created",
       "properties": {
         "channel": {
           "type": "string"

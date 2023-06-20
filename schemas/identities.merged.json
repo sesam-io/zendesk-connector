@@ -4,36 +4,47 @@
   "additionalProperties": true,
   "properties": {
     "created_at": {
+      "description": "The time the identity was created",
       "type": "string"
     },
     "deliverable_state": {
+      "description": "Email identity type only. Indicates if Zendesk sends notifications to the email address.",
       "type": "string"
     },
     "id": {
+      "description": "Automatically assigned on creation",
       "type": "integer"
     },
     "primary": {
+      "description": "If the identity is the primary identity. *Writable only when creating, not when updating. Use the Make Identity Primary endpoint instead",
       "type": "boolean"
     },
     "type": {
+      "description": "The type of this identity. Allowed values are 'email', 'twitter', 'facebook', 'google', 'phone_number', 'agent_forwarding', 'any_channel', 'foreign', or 'sdk'.",
       "type": "string"
     },
     "undeliverable_count": {
+      "description": "The number of times a soft-bounce response was received at that address",
       "type": "integer"
     },
     "updated_at": {
+      "description": "The time the identity was updated",
       "type": "string"
     },
     "url": {
+      "description": "The API url of this identity",
       "type": "string"
     },
     "user_id": {
+      "description": "The id of the user",
       "type": "integer"
     },
     "value": {
+      "description": "The identifier for this identity, such as an email address",
       "type": "string"
     },
     "verified": {
+      "description": "If the identity has been verified",
       "type": "boolean"
     }
   },

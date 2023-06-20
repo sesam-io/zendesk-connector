@@ -8,113 +8,126 @@
       "type": "string"
     },
     "allow_attachments": {
+      "description": "Permission for agents to add add attachments to a comment. Defaults to true",
       "type": "boolean"
     },
     "allow_channelback": {
+      "description": "Is false if channelback is disabled, true otherwise. Only applicable for channels framework ticket",
       "type": "boolean"
     },
     "assignee_id": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "description": "The agent currently assigned to the ticket",
+      "type": "integer"
     },
     "brand_id": {
+      "description": "Enterprise only. The id of the brand this ticket is associated with",
       "type": "integer"
     },
     "collaborator_ids": {
+      "description": "The ids of users currently CC'ed on the ticket",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "created_at": {
+      "description": "When this record was created",
       "type": "string"
     },
     "custom_fields": {
+      "description": "Custom fields for the ticket",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "custom_status_id": {
+      "description": "The custom ticket status id of the ticket.",
       "type": "integer"
     },
     "description": {
+      "description": "Read-only first comment on the ticket. When creating a ticket, use comment to set the description.",
       "type": "string"
     },
     "due_at": {
+      "description": "If this is a ticket of type 'task' it has a due date. Due date format uses ISO 8601 format.",
       "type": "string"
     },
     "email_cc_ids": {
+      "description": "The ids of agents or end users currently CC'ed on the ticket.",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "external_id": {
+      "description": "An id you can use to link Zendesk Support tickets to local records",
       "type": "string"
     },
     "follower_ids": {
+      "description": "The ids of agents currently following the ticket.",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "followup_ids": {
+      "description": "The ids of the followups created from this ticket. Ids are only visible once the ticket is closed",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "forum_topic_id": {
+      "description": "The topic in the Zendesk Web portal this ticket originated from, if any. The Web portal is deprecated",
       "type": "integer"
     },
     "from_messaging_channel": {
+      "description": "If true, the ticket's via type is a messaging channel.",
       "type": "boolean"
     },
     "group_id": {
+      "description": "The group this ticket is assigned to",
       "type": "integer"
     },
     "has_incidents": {
+      "description": "Is true if a ticket is a problem type and has one or more incidents linked to it. Otherwise, the value is false.",
       "type": "boolean"
     },
     "id": {
+      "description": "Automatically assigned when the ticket is created",
       "type": "integer"
     },
     "is_public": {
+      "description": "Is true if any comments are public, false otherwise",
       "type": "boolean"
     },
     "organization_id": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "description": "The organization of the requester. You can only specify the ID of an organization associated with the requester",
+      "type": "integer"
     },
     "priority": {
+      "description": "The urgency with which the ticket should be addressed. Allowed values are 'urgent', 'high', 'normal', or 'low'.",
       "type": "string"
     },
     "problem_id": {
+      "description": "For tickets of type 'incident', the ID of the problem the incident is linked to",
       "type": "integer"
     },
     "raw_subject": {
+      "description": "The dynamic content placeholder, if present, or the 'subject' value, if not.",
       "type": "string"
     },
     "recipient": {
+      "description": "The original recipient e-mail address of the ticket. Notification emails for the ticket are sent from this address",
       "type": "string"
     },
     "requester_id": {
+      "description": "The user who requested this ticket",
       "type": "integer"
     },
     "satisfaction_rating": {
+      "description": "The satisfaction rating of the ticket, if it exists, or the state of satisfaction, 'offered' or 'unoffered'. The value is null for plan types that don't support CSAT",
       "properties": {
         "assignee_id": {
           "type": "integer"
@@ -159,43 +172,44 @@
       "type": "object"
     },
     "sharing_agreement_ids": {
+      "description": "The ids of the sharing agreements used for this ticket",
       "items": {
         "anyOf": []
       },
       "type": "array"
     },
     "status": {
+      "description": "The state of the ticket. If your account has activated custom ticket statuses, this is the ticket's status category. Allowed values are 'new', 'open', 'pending', 'hold', 'solved', or 'closed'.",
       "type": "string"
     },
     "subject": {
+      "description": "The value of the subject field for this ticket",
       "type": "string"
     },
     "submitter_id": {
+      "description": "The user who submitted the ticket. The submitter always becomes the author of the first comment on the ticket",
       "type": "integer"
     },
     "tags": {
+      "description": "The array of tags applied to this ticket",
       "items": {
         "type": "string"
       },
       "type": "array"
     },
     "ticket_form_id": {
+      "description": "Enterprise only. The id of the ticket form to render for the ticket",
       "type": "integer"
     },
     "type": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "null"
     },
     "updated_at": {
+      "description": "When this record last got updated",
       "type": "string"
     },
     "url": {
+      "description": "The API url of this ticket",
       "type": "string"
     },
     "via": {

@@ -8,12 +8,15 @@
       "type": "string"
     },
     "active": {
+      "description": "false if the user has been deleted",
       "type": "boolean"
     },
     "alias": {
+      "description": "An alias displayed to end users",
       "type": "string"
     },
     "created_at": {
+      "description": "The time the user was created",
       "type": "string"
     },
     "custom_role_id": {
@@ -37,18 +40,23 @@
       ]
     },
     "details": {
+      "description": "Any details you want to store about the user, such as an address",
       "type": "string"
     },
     "email": {
+      "description": "The user's primary email address. *Writeable on create only. On update, a secondary email is added. See Email Address",
       "type": "string"
     },
     "external_id": {
+      "description": "A unique identifier from another system. The API treats the id as case insensitive. Example: 'ian1' and 'IAN1' are the same value.",
       "type": "string"
     },
     "iana_time_zone": {
+      "description": "The time zone for the user",
       "type": "string"
     },
     "id": {
+      "description": "Automatically assigned when the user is created",
       "type": "integer"
     },
     "last_login_at": {
@@ -62,21 +70,27 @@
       ]
     },
     "locale": {
+      "description": "The user's locale. A BCP-47 compliant tag for the locale. If both 'locale' and 'locale_id' are present on create or update, 'locale_id' is ignored and only 'locale' is used.",
       "type": "string"
     },
     "locale_id": {
+      "description": "The user's language identifier",
       "type": "integer"
     },
     "moderator": {
+      "description": "Designates whether the user has forum moderation capabilities",
       "type": "boolean"
     },
     "name": {
+      "description": "The user's name",
       "type": "string"
     },
     "notes": {
+      "description": "Any notes you want to store about the user",
       "type": "string"
     },
     "only_private_comments": {
+      "description": "true if the user can only create private comments",
       "type": "boolean"
     },
     "organization_id": {
@@ -188,12 +202,15 @@
       ]
     },
     "report_csv": {
+      "description": "This parameter is inert and has no effect. It may be deprecated in the future. Previously, this parameter determined whether a user could access a CSV report in a legacy Guide dashboard. This dashboard has been removed. See Announcing Guide legacy reporting upgrade to Explore",
       "type": "boolean"
     },
     "restricted_agent": {
+      "description": "If the agent has any restrictions; false for admins and unrestricted agents, true for other agents",
       "type": "boolean"
     },
     "role": {
+      "description": "The user's role. Possible values are 'end-user', 'agent', or 'admin'",
       "type": "string"
     },
     "role_type": {
@@ -207,9 +224,11 @@
       ]
     },
     "shared": {
+      "description": "If the user is shared from a different Zendesk Support instance. Ticket sharing accounts only",
       "type": "boolean"
     },
     "shared_agent": {
+      "description": "If the user is a shared agent from a different Zendesk Support instance. Ticket sharing accounts only",
       "type": "boolean"
     },
     "shared_phone_number": {
@@ -223,12 +242,15 @@
       ]
     },
     "signature": {
+      "description": "The user's signature. Only agents and admins can have signatures",
       "type": "string"
     },
     "suspended": {
+      "description": "If the agent is suspended. Tickets from suspended users are also suspended, and these users cannot sign in to the end user portal",
       "type": "boolean"
     },
     "tags": {
+      "description": "The user's tags. Only present if your account has user tagging enabled",
       "items": {
         "anyOf": []
       },
@@ -245,6 +267,7 @@
       ]
     },
     "time_zone": {
+      "description": "The user's time zone. See Time Zone",
       "type": "string"
     },
     "two_factor_auth_enabled": {
@@ -258,17 +281,21 @@
       ]
     },
     "updated_at": {
+      "description": "The time the user was last updated",
       "type": "string"
     },
     "url": {
+      "description": "The user's API url",
       "type": "string"
     },
     "user_fields": {
       "additionalProperties": true,
+      "description": "Values of custom fields in the user's profile. See User Fields",
       "properties": {},
       "type": "object"
     },
     "verified": {
+      "description": "Any of the user's identities is verified. See User Identities",
       "type": "boolean"
     }
   },

@@ -3,20 +3,306 @@
   "$schema": "http://json-schema.org/schema#",
   "additionalProperties": true,
   "properties": {
+    "active": {
+      "description": "false if the user has been deleted",
+      "type": "boolean"
+    },
     "alias": {
+      "description": "An alias displayed to end users",
       "type": "string"
+    },
+    "created_at": {
+      "description": "The time the user was created",
+      "type": "string"
+    },
+    "custom_role_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "description": "A custom role if the user is an agent on the Enterprise plan or above"
+        },
+        {
+          "type": "null"
+        }
+      ]  
+    },
+    "default_group_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "description": "The id of the user's default group"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "details": {
-      "type": "string"
+      "type": "string",
+      "description": "Any details you want to store about the user, such as an address"
+    },
+    "email": {
+      "type": "string",
+      "description": "The user's primary email address. *Writeable on create only. On update, a secondary email is added. See Email Address"
     },
     "external_id": {
-      "type": "string"
+      "type": "string",
+      "description": "A unique identifier from another system. The API treats the id as case insensitive. Example: 'ian1' and 'IAN1' are the same value."
+    },
+    "iana_time_zone": {
+      "type": "string",
+      "description": "The time zone for the user"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Automatically assigned when the user is created"
+    },
+    "last_login_at": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "description": "Last time the user signed in to Zendesk Support or made an API request using an API token or basic authentication"
+        }
+      ]
+    },
+    "locale": {
+      "type": "string",
+      "description": "The user's locale. A BCP-47 compliant tag for the locale. If both 'locale' and 'locale_id' are present on create or update, 'locale_id' is ignored and only 'locale' is used."
+    },
+    "locale_id": {
+      "type": "integer",
+      "description": "The user's language identifier"
+    },
+    "moderator": {
+      "type": "boolean",
+      "description": "Designates whether the user has forum moderation capabilities"
+    },
+    "name": {
+      "type": "string",
+      "description": "The user's name"
     },
     "notes": {
-      "type": "string"
+      "type": "string",
+      "description": "Any notes you want to store about the user"
+    },
+    "only_private_comments": {
+      "type": "boolean",
+      "description": "true if the user can only create private comments"
+    },
+    "organization_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "description": "The id of the user's organization. If the user has more than one organization memberships, the id of the user's default organization. If updating, see Organization ID"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "phone": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "description": "The user's primary phone number. See Phone Number below"
+        }
+      ] 
+    },
+    "photo": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "content_type": {
+              "type": "string"
+            },
+            "content_url": {
+              "type": "string"
+            },
+            "deleted": {
+              "type": "boolean"
+            },
+            "file_name": {
+              "type": "string"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "mapped_content_url": {
+              "type": "string"
+            },
+            "size": {
+              "type": "integer"
+            },
+            "thumbnails": {
+              "items": {
+                "additionalProperties": true,
+                "properties": {
+                  "content_type": {
+                    "type": "string"
+                  },
+                  "content_url": {
+                    "type": "string"
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  },
+                  "file_name": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "inline": {
+                    "type": "boolean"
+                  },
+                  "mapped_content_url": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "url": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "description": "The user's profile picture represented as an Attachment object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "report_csv": {
+      "type": "boolean",
+      "description": "This parameter is inert and has no effect. It may be deprecated in the future. Previously, this parameter determined whether a user could access a CSV report in a legacy Guide dashboard. This dashboard has been removed. See Announcing Guide legacy reporting upgrade to Explore"
+    },
+    "restricted_agent": {
+      "type": "boolean",
+      "description": "If the agent has any restrictions; false for admins and unrestricted agents, true for other agents"
+    },
+    "role": {
+      "type": "string",
+      "description": "The user's role. Possible values are 'end-user', 'agent', or 'admin'"
+    },
+    "role_type": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "description": "The user's role id. 0 for a custom agent, 1 for a light agent, 2 for a chat agent, 3 for a chat agent added to the Support account as a contributor (Chat Phase 4), 4 for an admin, and 5 for a billing admin"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "shared": {
+      "type": "boolean",
+      "description": "If the user is shared from a different Zendesk Support instance. Ticket sharing accounts only"
+    },
+    "shared_agent": {
+      "type": "boolean",
+      "description": "If the user is a shared agent from a different Zendesk Support instance. Ticket sharing accounts only"
+    },
+    "shared_phone_number": {
+      "anyOf": [
+        {
+          "type": "boolean",
+          "description": "Whether the phone number is shared or not. See Phone Number below"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "signature": {
-      "type": "string"
+      "type": "string",
+      "description": "The user's signature. Only agents and admins can have signatures"
+    },
+    "suspended": {
+      "type": "boolean",
+      "description": "If the agent is suspended. Tickets from suspended users are also suspended, and these users cannot sign in to the end user portal"
+    },
+    "tags": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array",
+      "description": "The user's tags. Only present if your account has user tagging enabled"
+    },
+    "ticket_restriction": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "description": "Specifies which tickets the user has access to. Possible values are: 'organization', 'groups', 'assigned', 'requested', null"
+        }
+      ]      
+    },
+    "time_zone": {
+      "type": "string",
+      "description": "The user's time zone. See Time Zone"
+    },
+    "two_factor_auth_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean",
+          "description": "If two factor authentication is enabled"
+        },
+        {
+          "type": "null"
+        }
+      ]  
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "The time the user was last updated"
+    },
+    "url": {
+      "type": "string",
+      "description": "The user's API url"
+    },
+    "user_fields": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object",
+      "description": "Values of custom fields in the user's profile. See User Fields"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Any of the user's identities is verified. See User Identities"
     }
   },
   "title": "Pipe sink entity type: xxxxxx-users-collect",

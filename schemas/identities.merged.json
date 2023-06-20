@@ -1,0 +1,42 @@
+{
+  "$id": "/api/pipes/xxxxxx-identities-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "created_at": {
+      "type": "string"
+    },
+    "deliverable_state": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "primary": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "undeliverable_count": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "value": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-identities-collect",
+  "type": "object"
+}

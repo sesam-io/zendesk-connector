@@ -1,0 +1,277 @@
+{
+  "$id": "/api/pipes/xxxxxx-users-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last-modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "custom_role_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "default_group_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "details": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "iana_time_zone": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "last_login_at": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "locale": {
+      "type": "string"
+    },
+    "locale_id": {
+      "type": "integer"
+    },
+    "moderator": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "only_private_comments": {
+      "type": "boolean"
+    },
+    "organization_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "phone": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "photo": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "content_type": {
+              "type": "string"
+            },
+            "content_url": {
+              "type": "string"
+            },
+            "deleted": {
+              "type": "boolean"
+            },
+            "file_name": {
+              "type": "string"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "mapped_content_url": {
+              "type": "string"
+            },
+            "size": {
+              "type": "integer"
+            },
+            "thumbnails": {
+              "items": {
+                "additionalProperties": true,
+                "properties": {
+                  "content_type": {
+                    "type": "string"
+                  },
+                  "content_url": {
+                    "type": "string"
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  },
+                  "file_name": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "inline": {
+                    "type": "boolean"
+                  },
+                  "mapped_content_url": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "url": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "report_csv": {
+      "type": "boolean"
+    },
+    "restricted_agent": {
+      "type": "boolean"
+    },
+    "role": {
+      "type": "string"
+    },
+    "role_type": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "shared": {
+      "type": "boolean"
+    },
+    "shared_agent": {
+      "type": "boolean"
+    },
+    "shared_phone_number": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "signature": {
+      "type": "string"
+    },
+    "suspended": {
+      "type": "boolean"
+    },
+    "tags": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "ticket_restriction": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "time_zone": {
+      "type": "string"
+    },
+    "two_factor_auth_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "user_fields": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-users-collect",
+  "type": "object"
+}

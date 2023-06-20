@@ -1,0 +1,30 @@
+{
+  "$id": "/api/pipes/xxxxxx-tickets-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "due_at": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "forum_topic_id": {
+      "type": "integer"
+    },
+    "problem_id": {
+      "type": "integer"
+    },
+    "recipient": {
+      "type": "string"
+    },
+    "satisfaction_rating": {
+      "type": "object",
+      "properties": {
+
+      }
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-tickets-collect",
+  "type": "object"
+}

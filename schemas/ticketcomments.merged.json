@@ -1,0 +1,117 @@
+{
+  "$id": "/api/pipes/xxxxxx-ticketcomments-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "attachments": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "audit_id": {
+      "type": "integer"
+    },
+    "author_id": {
+      "type": "integer"
+    },
+    "body": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "html_body": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "properties": {
+        "custom": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "notifications_suppressed_for": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "system": {
+          "additionalProperties": true,
+          "properties": {
+            "client": {
+              "type": "string"
+            },
+            "ip_address": {
+              "type": "string"
+            },
+            "latitude": {
+              "subtype": "decimal",
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "longitude": {
+              "subtype": "decimal",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "plain_body": {
+      "type": "string"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "via": {
+      "additionalProperties": true,
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": true,
+          "properties": {
+            "from": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "rel": {
+              "type": "null"
+            },
+            "to": {
+              "additionalProperties": true,
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-ticketcomments-collect",
+  "type": "object"
+}

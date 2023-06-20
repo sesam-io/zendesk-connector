@@ -1,0 +1,192 @@
+{
+  "$id": "/api/pipes/xxxxxx-tickets-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last-modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "allow_attachments": {
+      "type": "boolean"
+    },
+    "allow_channelback": {
+      "type": "boolean"
+    },
+    "assignee_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "brand_id": {
+      "type": "integer"
+    },
+    "collaborator_ids": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "custom_fields": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "custom_status_id": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "due_at": {
+      "type": "string"
+    },
+    "email_cc_ids": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "follower_ids": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "followup_ids": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "forum_topic_id": {
+      "type": "integer"
+    },
+    "from_messaging_channel": {
+      "type": "boolean"
+    },
+    "group_id": {
+      "type": "integer"
+    },
+    "has_incidents": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "is_public": {
+      "type": "boolean"
+    },
+    "organization_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "priority": {
+      "type": "string"
+    },
+    "problem_id": {
+      "type": "integer"
+    },
+    "raw_subject": {
+      "type": "string"
+    },
+    "recipient": {
+      "type": "string"
+    },
+    "requester_id": {
+      "type": "integer"
+    },
+    "satisfaction_rating": {
+      "properties": {},
+      "type": "object"
+    },
+    "sharing_agreement_ids": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "submitter_id": {
+      "type": "integer"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ticket_form_id": {
+      "type": "integer"
+    },
+    "type": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "via": {
+      "additionalProperties": true,
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": true,
+          "properties": {
+            "from": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "rel": {
+              "type": "null"
+            },
+            "to": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-tickets-collect",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "/api/pipes/xxxxxx-organizations-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "details": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "group_id": {
+      "type": "integer"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-organizations-collect",
+  "type": "object"
+}

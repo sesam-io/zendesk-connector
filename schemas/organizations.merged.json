@@ -1,0 +1,70 @@
+{
+  "$id": "/api/pipes/xxxxxx-organizations-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$last-modified": {
+      "subtype": "nanoseconds",
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "domain_names": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "group_id": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "organization_fields": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
+    "shared_comments": {
+      "type": "boolean"
+    },
+    "shared_tickets": {
+      "type": "boolean"
+    },
+    "tags": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-organizations-collect",
+  "type": "object"
+}

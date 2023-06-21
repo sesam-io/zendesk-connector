@@ -57,7 +57,6 @@
 "Zendesk","tickets","external_id","","string","An id you can use to link Zendesk Support tickets to local records"
 "Zendesk","tickets","follower_ids","","array","The ids of agents currently following the ticket."
 "Zendesk","tickets","followup_ids","","array","The ids of the followups created from this ticket. Ids are only visible once the ticket is closed"
-"Zendesk","tickets","foo","","decimal","Property can be decimal or integer"
 "Zendesk","tickets","forum_topic_id","","integer","The topic in the Zendesk Web portal this ticket originated from, if any. The Web portal is deprecated"
 "Zendesk","tickets","from_messaging_channel","","boolean","If true, the ticket's via type is a messaging channel."
 "Zendesk","tickets","group_id","","integer","The group this ticket is assigned to"

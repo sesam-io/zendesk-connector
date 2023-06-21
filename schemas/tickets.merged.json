@@ -16,8 +16,15 @@
       "type": "boolean"
     },
     "assignee_id": {
-      "description": "The agent currently assigned to the ticket",
-      "type": "integer"
+      "anyOf": [
+        {
+          "description": "The agent currently assigned to the ticket",
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "brand_id": {
       "description": "Enterprise only. The id of the brand this ticket is associated with",
@@ -103,8 +110,15 @@
       "type": "boolean"
     },
     "organization_id": {
-      "description": "The organization of the requester. You can only specify the ID of an organization associated with the requester",
-      "type": "integer"
+      "anyOf": [
+        {
+          "description": "The organization of the requester. You can only specify the ID of an organization associated with the requester",
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "priority": {
       "description": "The urgency with which the ticket should be addressed. Allowed values are 'urgent', 'high', 'normal', or 'low'.",
@@ -202,7 +216,15 @@
       "type": "integer"
     },
     "type": {
-      "type": "null"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "description": "The type of this ticket. Allowed values are 'problem', 'incident', 'question', or 'task'.",
+          "type": "string"
+        }
+      ]
     },
     "updated_at": {
       "description": "When this record last got updated",

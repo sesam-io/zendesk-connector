@@ -39,7 +39,15 @@
       "type": "string"
     },
     "notes": {
-      "type": "null"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "description": "Any notes you have about the organization",
+          "type": "string"
+        }
+      ]
     },
     "organization_fields": {
       "additionalProperties": true,

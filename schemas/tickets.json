@@ -215,17 +215,6 @@
       "type": "integer",
       "description": "Enterprise only. The id of the ticket form to render for the ticket"
     },
-    "foo": {
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "type": "string",
-          "subtype": "decimal"
-        }
-      ]
-    },
     "type": {
       "anyOf": [
         {

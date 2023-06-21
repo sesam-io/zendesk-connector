@@ -1,0 +1,128 @@
+{
+  "$id": "/api/pipes/xxxxxx-ticketcomments-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "attachments": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array",
+      "description": "Attachments, if any."
+    },
+    "audit_id": {
+      "type": "integer",
+      "description": "The id of the ticket audit record"
+    },
+    "author_id": {
+      "type": "integer",
+      "description": "The id of the comment author"
+    },
+    "body": {
+      "type": "string",
+      "description": "The comment string"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The time the comment was created"
+    },
+    "html_body": {
+      "type": "string",
+      "description": "The comment formatted as HTML"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Automatically assigned when the comment is created"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "properties": {
+        "custom": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": "object"
+        },
+        "notifications_suppressed_for": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "system": {
+          "additionalProperties": true,
+          "properties": {
+            "client": {
+              "type": "string"
+            },
+            "ip_address": {
+              "type": "string"
+            },
+            "latitude": {
+              "subtype": "decimal",
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "longitude": {
+              "subtype": "decimal",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "description": "System information (web client, IP address, etc.) and comment flags, if any"
+    },
+    "plain_body": {
+      "type": "string",
+      "description": "The comment presented as plain text."
+    },
+    "public": {
+      "type": "boolean",
+      "description": "true if a public comment; false if an internal note. The initial value set on ticket creation persists for any additional comment unless you change it"
+    },
+    "type": {
+      "type": "string",
+      "description": "Comment or VoiceComment. The JSON object for adding voice comments to tickets is different."
+    },
+    "via": {
+      "additionalProperties": true,
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": true,
+          "properties": {
+            "from": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            },
+            "rel": {
+              "type": "null"
+            },
+            "to": {
+              "additionalProperties": true,
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "description": "Describes how the object was created"
+    }
+  },  "title": "Pipe sink entity type: xxxxxx-ticketcomments-collect",
+  "type": "object"
+}

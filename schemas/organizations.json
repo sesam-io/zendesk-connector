@@ -1,0 +1,80 @@
+{
+  "$id": "/api/pipes/xxxxxx-organizations-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "created_at": {
+      "type": "string",
+      "description": "The time the organization was created"
+    },
+    "details": {
+      "type": "string",
+      "description": "Any details obout the organization, such as the address"
+    },
+    "domain_names": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array",
+      "description": "An array of domain names associated with this organization"
+    },
+    "external_id": {
+      "type": "string",
+      "description": "A unique external id to associate organizations to an external record. The id is case-insensitive. For example, 'company1' and 'Company1' are considered the same"
+    },
+    "group_id": {
+      "type": "integer",
+      "description": "New tickets from users in this organization are automatically put in this group"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Automatically assigned when the organization is created"
+    },
+    "name": {
+      "type": "string",
+      "description": "A unique name for the organization"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "description": "Any notes you have about the organization"
+        }
+      ]
+    },
+    "organization_fields": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object",
+      "description": "Custom fields for this organization"
+    },
+    "shared_comments": {
+      "type": "boolean",
+      "description": "End users in this organization are able to see each other's comments on tickets"
+    },
+    "shared_tickets": {
+      "type": "boolean",
+      "description": "End users in this organization are able to see each other's tickets"
+    },
+    "tags": {
+      "items": {
+        "anyOf": []
+      },
+      "type": "array",
+      "description": "The tags of the organization"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "The time of the last update of the organization"
+    },
+    "url": {
+      "type": "string",
+      "description": "The API url of this organization"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-organizations-collect",
+  "type": "object"
+}

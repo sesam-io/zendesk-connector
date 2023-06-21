@@ -1,0 +1,52 @@
+{
+  "$id": "/api/pipes/xxxxxx-identities-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "created_at": {
+      "type": "string",
+      "description": "The time the identity was created"
+    },
+    "deliverable_state": {
+      "type": "string",
+      "description": "Email identity type only. Indicates if Zendesk sends notifications to the email address."
+    },
+    "id": {
+      "type": "integer",
+      "description": "Automatically assigned on creation"
+    },
+    "primary": {
+      "type": "boolean",
+      "description": "If the identity is the primary identity. *Writable only when creating, not when updating. Use the Make Identity Primary endpoint instead"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of this identity. Allowed values are 'email', 'twitter', 'facebook', 'google', 'phone_number', 'agent_forwarding', 'any_channel', 'foreign', or 'sdk'."
+    },
+    "undeliverable_count": {
+      "type": "integer",
+      "description": "The number of times a soft-bounce response was received at that address"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "The time the identity was updated"
+    },
+    "url": {
+      "type": "string",
+      "description": "The API url of this identity"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "The id of the user"
+    },
+    "value": {
+      "type": "string",
+      "description": "The identifier for this identity, such as an email address"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "If the identity has been verified"
+    }
+  },  "title": "Pipe sink entity type: xxxxxx-identities-collect",
+  "type": "object"
+}

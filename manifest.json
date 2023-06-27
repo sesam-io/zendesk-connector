@@ -1,5 +1,4 @@
 {
-  "system": "Zendesk",
   "additional_parameters": {
     "email": {},
     "subdomain": {}
@@ -40,5 +39,6 @@
       "template": "templates/tickets.json"
     }
   },
+  "system": "Zendesk",
   "system-template": "templates/system.json"
 }

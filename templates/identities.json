@@ -2,12 +2,12 @@
   {
     "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "namespaced_identifiers": false,
+    "pump": {
+      "rescan_run_count": 1
+    },
     "source": {
       "dataset": "{{@ system @}}-{{@ parent @}}-collect",
       "type": "dataset"
-    },
-    "pump": {
-      "rescan_run_count": 1
     },
     "transform": [
       {
@@ -54,7 +54,23 @@
                 "string",
                 "_S.id"
               ]
+            ],
+            [
+            "add",
+            "$last-modified",
+            [
+              "datetime-parse",
+              "%Y-%m-%dT%H:%M:%SZ",
+              [
+                "coalesce",
+                [
+                  "list",
+                  "_S.updated_at",
+                  "_S.created_at"
+                ]
+              ]
             ]
+          ]
           ],
           "default": [
             [

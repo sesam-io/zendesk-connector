@@ -1,79 +1,93 @@
-[
-  {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "namespaced_identifiers": false,
-    "source": {
-      "dataset": "{{@ system @}}-{{@ parent @}}-collect",
-      "type": "dataset"
-    },
-    "transform": [
-      {
-        "rules": {
-          "default": [
+{
+  "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+  "namespaced_identifiers": false,
+  "source": {
+    "dataset": "{{@ system @}}-{{@ parent @}}-collect",
+    "type": "dataset"
+  },
+  "transform": [
+    {
+      "rules": {
+        "default": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "add",
+            "properties",
             [
-              "copy",
-              "*"
-            ],
-            [
-              "add",
-              "properties",
-              [
-                "dict",
-                "{{@ parent_id @}}",
-                "_S.id"
-              ]
+              "dict",
+              "{{@ parent_id @}}",
+              "_S.id"
             ]
           ]
-        },
-        "type": "dtl"
+        ]
       },
-      {
-        "operation": "{{@ datatype @}}-list",
-        "side_effects": false,
-        "system": "{{@ system @}}",
-        "trace": {
-          "log_request_body_maxsize": 100000,
-          "log_response_body_maxsize": 100000
-        },
-        "type": "rest"
+      "type": "dtl"
+    },
+    {
+      "operation": "{{@ datatype @}}-list",
+      "side_effects": false,
+      "system": "{{@ system @}}",
+      "trace": {
+        "log_request_body_maxsize": 100000,
+        "log_response_body_maxsize": 100000
       },
-      {
-        "rules": {
-          "add-ids": [
+      "type": "rest"
+    },
+    {
+      "rules": {
+        "add-ids": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "add",
+            "_id",
             [
-              "copy",
-              "*"
-            ],
-            [
-              "add",
-              "_id",
-              [
-                "string",
-                "_S.id"
-              ]
+              "string",
+              "_S.id"
             ]
           ],
-          "default": [
+          [
+            "add",
+            "$last-modified",
             [
-              "copy",
-              "*"
-            ],
-            [
-              "create",
+              "datetime-parse",
+              "%Y-%m-%dT%H:%M:%SZ",
               [
-                "apply",
-                "add-ids",
-                "_S.response"
+                "coalesce",
+                [
+                  "list",
+                  "_S.updated_at",
+                  "_S.created_at"
+                ]
               ]
-            ],
-            [
-              "discard"
             ]
           ]
-        },
-        "type": "dtl"
-      }
-    ],
-    "type": "pipe"
-  }
-]
+        ],
+        "default": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "create",
+            [
+              "apply",
+              "add-ids",
+              "_S.response"
+            ]
+          ],
+          [
+            "discard"
+          ]
+        ]
+      },
+      "type": "dtl"
+    }
+  ],
+  "type": "pipe"
+}

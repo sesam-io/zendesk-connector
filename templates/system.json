@@ -43,16 +43,6 @@
       "payload_property": "organization",
       "url": "organizations.json"
     },
-    "organizations-lookup": {
-      "method": "GET",
-      "payload_property": "organization",
-      "url": "organizations/{{ entity['$source']['id'] }}.json"
-    },
-    "organizations-update": {
-      "method": "PUT",
-      "payload_property": "organization",
-      "url": "organizations/{{ entity['$source']['id'] }}.json"
-    },
     "organizations-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -66,6 +56,16 @@
       },
       "payload_property": "organizations",
       "url": "organizations"
+    },
+    "organizations-lookup": {
+      "method": "GET",
+      "payload_property": "organization",
+      "url": "organizations/{{ entity['$source']['id'] }}.json"
+    },
+    "organizations-update": {
+      "method": "PUT",
+      "payload_property": "organization",
+      "url": "organizations/{{ entity['$source']['id'] }}.json"
     },
     "ticketcomments-list": {
       "method": "GET",

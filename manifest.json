@@ -36,6 +36,7 @@
       "parameters": {
         "payload_property": "user"
       },
+      "sync_frequency": "slow",
       "template": "templates/tickets.json"
     }
   },

@@ -11,7 +11,7 @@
       },
       "type": "rest"
     },
-    "transform": {
+    "transform": [{
       "rules": {
         "default": [
           [
@@ -31,6 +31,14 @@
       },
       "type": "dtl"
     },
+    {
+      "type": "template",
+      "properties": {
+        "primary_key": "id",
+        "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+      },
+      "template": "transform-collect-rest"
+    }],
     "type": "pipe"
   },
   {

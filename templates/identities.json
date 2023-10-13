@@ -2,6 +2,9 @@
   {
     "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "namespaced_identifiers": false,
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
     "pump": {
       "rescan_run_count": 1
     },

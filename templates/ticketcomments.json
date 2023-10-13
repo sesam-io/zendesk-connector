@@ -1,6 +1,9 @@
 {
   "_id": "{{@ system @}}-{{@ datatype @}}-collect",
   "namespaced_identifiers": false,
+  "exclude_completeness": [
+    "{{@ system @}}-{{@ datatype @}}-share"
+  ],
   "source": {
     "dataset": "{{@ system @}}-{{@ parent @}}-collect",
     "type": "dataset"

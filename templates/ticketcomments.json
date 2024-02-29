@@ -1,96 +1,109 @@
-{
-  "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-  "namespaced_identifiers": false,
-  "exclude_completeness": [
-    "{{@ system @}}-{{@ datatype @}}-share"
-  ],
-  "source": {
-    "dataset": "{{@ system @}}-{{@ parent @}}-collect",
-    "type": "dataset"
-  },
-  "transform": [
-    {
-      "rules": {
-        "default": [
-          [
-            "copy",
-            "*"
-          ],
-          [
-            "add",
-            "properties",
-            [
-              "dict",
-              "{{@ parent_id @}}",
-              "_S.id"
-            ]
-          ]
-        ]
-      },
-      "type": "dtl"
+[
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ parent @}}-collect",
+      "type": "dataset"
     },
-    {
-      "operation": "{{@ datatype @}}-list",
-      "side_effects": false,
-      "system": "{{@ system @}}",
-      "trace": {
-        "log_request_body_maxsize": 100000,
-        "log_response_body_maxsize": 100000
-      },
-      "type": "rest"
-    },
-    {
-      "rules": {
-        "add-ids": [
-          [
-            "copy",
-            "*"
-          ],
-          [
-            "add",
-            "_id",
+    "transform": [
+      {
+        "rules": {
+          "default": [
             [
-              "string",
-              "_S.id"
-            ]
-          ],
-          [
-            "add",
-            "$last-modified",
+              "copy",
+              "*"
+            ],
             [
-              "datetime-parse",
-              "%Y-%m-%dT%H:%M:%SZ",
+              "add",
+              "properties",
               [
-                "coalesce",
-                [
-                  "list",
-                  "_S.updated_at",
-                  "_S.created_at"
-                ]
+                "dict",
+                "{{@ parent_id @}}",
+                "_S.id"
               ]
             ]
           ]
-        ],
-        "default": [
-          [
-            "copy",
-            "*"
-          ],
-          [
-            "create",
+        },
+        "type": "dtl"
+      },
+      {
+        "operation": "{{@ datatype @}}-list",
+        "side_effects": false,
+        "system": "{{@ system @}}",
+        "trace": {
+          "log_request_body_maxsize": 100000,
+          "log_response_body_maxsize": 100000
+        },
+        "type": "rest"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "rules": {
+          "add-ids": [
             [
-              "apply",
-              "add-ids",
-              "_S.response"
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "_id",
+              [
+                "string",
+                "_S.id"
+              ]
+            ],
+            [
+              "add",
+              "$last-modified",
+              [
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
+                [
+                  "coalesce",
+                  [
+                    "list",
+                    "_S.updated_at",
+                    "_S.created_at"
+                  ]
+                ]
+              ]
             ]
           ],
-          [
-            "discard"
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "create",
+              [
+                "apply",
+                "add-ids",
+                "_S.response"
+              ]
+            ],
+            [
+              "discard"
+            ]
           ]
-        ]
-      },
-      "type": "dtl"
-    }
-  ],
-  "type": "pipe"
-}
+        },
+        "type": "dtl"
+      }
+    ],
+    "type": "pipe"
+  }
+]

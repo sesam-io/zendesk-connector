@@ -1,9 +1,12 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ payload_property @}}s-all",
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "namespaced_identifiers": false,
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
     "source": {
-      "operation": "{{@ payload_property @}}s-list",
+      "operation": "{{@ datatype @}}-list",
       "system": "{{@ system @}}",
       "trace": {
         "log_request_body_maxsize": 100000,
@@ -11,52 +14,38 @@
       },
       "type": "rest"
     },
-    "type": "pipe"
-  },
-  {
-    "_id": "{{@ system @}}-{{@ payload_property @}}s-collect",
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ payload_property @}}s-share"
-    ],
-    "namespaced_identifiers": false,
-    "source": {
-      "dataset": "{{@ system @}}-{{@ payload_property @}}s-all",
-      "type": "dataset"
-    },
-    "transform": [
-      {
-        "rules": {
-          "default": [
+    "transform": [{
+      "rules": {
+        "default": [
+          [
+            "copy",
+            "*"
+          ],
+          [
+            "add",
+            "$last-modified",
             [
-              "copy",
-              "*"
-            ],
-            [
-              "add",
-              "$last-modified",
-              [
-                "datetime-parse",
-                "%Y-%m-%dT%H:%M:%SZ",
-                "_S.updated_at"
-              ]
+              "datetime-parse",
+              "%Y-%m-%dT%H:%M:%SZ",
+              "_S.updated_at"
             ]
           ]
-        },
-        "type": "dtl"
+        ]
       },
-      {
-        "properties": {
-          "primary_key": "id",
-          "share_dataset": "{{@ system @}}-{{@ payload_property @}}s-share"
-        },
-        "template": "transform-collect-rest",
-        "type": "template"
-      }
-    ],
+      "type": "dtl"
+    },
+    {
+      "type": "template",
+      "properties": {
+        "primary_key": "id",
+        "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+      },
+      "template": "transform-collect-rest"
+    }],
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ payload_property @}}s-share",
+    "_id": "{{@ system @}}-{{@ datatype @}}-share",
     "batch_size": 1,
     "namespaced_identifiers": false,
     "sink": {
@@ -64,7 +53,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-{{@ payload_property @}}s-transform",
+      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
       "type": "dataset"
     },
     "transform": [
@@ -105,13 +94,13 @@
       },
       {
         "properties": {
-          "operation_delete": "{{@ payload_property @}}s-delete",
-          "operation_insert": "{{@ payload_property @}}s-insert",
-          "operation_lookup": "{{@ payload_property @}}s-lookup",
-          "operation_update": "{{@ payload_property @}}s-update",
+          "operation_delete": "{{@ datatype @}}-delete",
+          "operation_insert": "{{@ datatype @}}-insert",
+          "operation_lookup": "{{@ datatype @}}-lookup",
+          "operation_update": "{{@ datatype @}}-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ payload_property @}}s-share"
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
         "trace": {

@@ -1,10 +1,7 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
-    ],
     "pump": {
       "rescan_run_count": 1
     },
@@ -42,7 +39,24 @@
           "log_response_body_maxsize": 100000
         },
         "type": "rest"
-      },
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "pump": {
+      "rescan_run_count": 1
+    },
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
       {
         "rules": {
           "add-ids": [
@@ -59,21 +73,21 @@
               ]
             ],
             [
-            "add",
-            "$last-modified",
-            [
-              "datetime-parse",
-              "%Y-%m-%dT%H:%M:%SZ",
+              "add",
+              "$last-modified",
               [
-                "coalesce",
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
                 [
-                  "list",
-                  "_S.updated_at",
-                  "_S.created_at"
+                  "coalesce",
+                  [
+                    "list",
+                    "_S.updated_at",
+                    "_S.created_at"
+                  ]
                 ]
               ]
             ]
-          ]
           ],
           "default": [
             [
@@ -96,13 +110,14 @@
         "type": "dtl"
       },
       {
-        "type": "template",
         "properties": {
           "primary_key": "id",
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
-        "template": "transform-collect-rest"
-      }],
+        "template": "transform-collect-rest",
+        "type": "template"
+      }
+    ],
     "type": "pipe"
   },
   {

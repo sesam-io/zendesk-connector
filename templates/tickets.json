@@ -8,10 +8,6 @@
       "since_property_location": "manual",
       "supports_since": true,
       "system": "{{@ system @}}",
-      "trace": {
-        "log_request_body_maxsize": 100000,
-        "log_response_body_maxsize": 100000
-      },
       "type": "rest",
       "updated_expression": "{{ updated_at }}"
     },

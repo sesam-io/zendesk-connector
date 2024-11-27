@@ -1,9 +1,6 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
-    ],
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
     "pump": {
       "rescan_run_count": 1
@@ -37,12 +34,22 @@
         "operation": "{{@ datatype @}}-list",
         "side_effects": false,
         "system": "{{@ system @}}",
-        "trace": {
-          "log_request_body_maxsize": 100000,
-          "log_response_body_maxsize": 100000
-        },
         "type": "rest"
-      },
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
       {
         "rules": {
           "add-ids": [

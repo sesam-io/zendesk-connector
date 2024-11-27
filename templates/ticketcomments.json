@@ -90,9 +90,7 @@
   },
   {
     "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
-    ],
+    "exclude_completeness": [],
     "namespaced_identifiers": false,
     "source": {
       "dataset": "{{@ system @}}-{{@ datatype @}}-all",

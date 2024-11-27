@@ -19,6 +19,9 @@
       },
       "template": "templates/tickets.json"
     },
+    "ticketaudits": {
+      "template": "templates/ticketaudits.json"
+    },
     "ticketcomments": {
       "parameters": {
         "parent_id": "ticket_id"

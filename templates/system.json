@@ -46,16 +46,14 @@
     "organizations-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
-      "next_page_link": "{{ body.links.next }}",
+      "next_page_link": "{{ body.next_page }}",
       "next_page_termination_strategy": [
         "empty-result",
         "next-page-link-empty"
       ],
-      "params": {
-        "page[size]": 1
-      },
-      "payload_property": "organizations",
-      "url": "organizations"
+      "page_size": 100,
+      "payload_property": "results",
+      "url": "search.json?query=updated>={{ since }} type:organization&page=1&per_page={{ page_size}}"
     },
     "organizations-lookup": {
       "method": "GET",
@@ -66,6 +64,20 @@
       "method": "PUT",
       "payload_property": "organization",
       "url": "organizations/{{ entity['$source']['id'] }}.json"
+    },
+    "ticketaudits-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body.links.next }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "next-page-link-empty"
+      ],
+      "params": {
+        "page[size]": 100
+      },
+      "payload_property": "audits",
+      "url": "ticket_audits.json"
     },
     "ticketcomments-list": {
       "method": "GET",
@@ -92,16 +104,14 @@
     "tickets-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
-      "next_page_link": "{{ body.links.next }}",
+      "next_page_link": "{{ body.next_page }}",
       "next_page_termination_strategy": [
         "empty-result",
         "next-page-link-empty"
       ],
-      "params": {
-        "page[size]": 1
-      },
-      "payload_property": "tickets",
-      "url": "tickets.json"
+      "page_size": 100,
+      "payload_property": "results",
+      "url": "search.json?query=updated>={{ since }} type:ticket&page=1&per_page={{ page_size}}"
     },
     "tickets-lookup": {
       "method": "GET",
@@ -125,16 +135,14 @@
     "users-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
-      "next_page_link": "{{ body.links.next }}",
+      "next_page_link": "{{ body.next_page }}",
       "next_page_termination_strategy": [
         "empty-result",
         "next-page-link-empty"
       ],
-      "params": {
-        "page[size]": 1
-      },
-      "payload_property": "users",
-      "url": "users"
+      "page_size": 100,
+      "payload_property": "results",
+      "url": "search.json?query=updated>={{ since }} type:user&page=1&per_page={{ page_size}}"
     },
     "users-lookup": {
       "method": "GET",
@@ -147,7 +155,7 @@
       "url": "users/{{ entity['$source']['id'] }}"
     }
   },
-  "password": "$SECRET(api_key)",
+  "password": "RirDbLUgukiboElrkrpSyh6PR2LxjTsuUrXoK36H",
   "type": "system:rest",
   "url_pattern": "https://{{@ subdomain @}}.zendesk.com/api/v2/%s",
   "username": "{{@ email @}}/token",
